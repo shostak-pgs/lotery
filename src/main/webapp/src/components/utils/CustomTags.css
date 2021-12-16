@@ -1,0 +1,24 @@
+.error textarea {
+    border-radius: 6px;
+    width: 100%;
+    border : solid tomato 2px;
+}
+
+.valid textarea {
+    border-radius: 6px;
+    width: 100%;
+}
+
+
+.error select {
+    border-radius: 6px;
+    padding: 2%;
+    width: 100%;
+    border : solid tomato 2px;
+}
+
+.valid select {
+    border-radius: 6px;
+    padding: 2%;
+    width: 100%;
+}
