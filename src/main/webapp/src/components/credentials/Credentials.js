@@ -1,10 +1,9 @@
 import React from 'react';
 import { Navbar, Nav, Form } from 'react-bootstrap';
 import { withRouter, NavLink } from 'react-router-dom';
-import './Credentials.css';
-import homeicon from './../../img/homeicon.png';
-import mypageicon from './../../img/mypageicon.png';
-import './../users/header/ActionBar.css';
+import homeicon from '../../img/homeicon.png';
+import mypageicon from '../../img/mypageicon.png';
+import '../users/header/ActionBar.css';
 
 const Credentials = (props) => {
     let user = props.user;
@@ -23,7 +22,7 @@ const Credentials = (props) => {
 
     let credentData = () => {
         if(isUserRegistered() && user.firstName !== "") {
-            return (<div className = 'credLight'>{`${user.lastName} ${user.firstName}`}</div>) 
+            return (<div >{`${user.lastName} ${user.firstName}`}</div>)
         } else {
             return (<div>unautorized</div>)
         }

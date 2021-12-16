@@ -15,11 +15,8 @@ let RenderTableData = (props) => {
         return (
             <thead>
                 <tr>
-                    <th class='col-1'><Checkbox checked={props.flag} onChange={checkAll} /></th>
                     <th class='col-3'>First Name</th>
                     <th class='col-3'>Second Name</th>
-                    <th class='col-3'>Registration Date</th>
-                    <th class='col-3'>State</th>
                 </tr>
             </thead>
         )
@@ -31,12 +28,8 @@ let RenderTableData = (props) => {
                 user =>
                     <tbody>
                         <tr key={user.id}>
-                            <td><Checkbox name={user.id}
-                                          checked={props.checkedItems.get(user.id)} onChange={handleChange} /></td>
                             <td>{user.firstName}</td>
                             <td>{user.secondName}</td>
-                            <td>{user.registrationDate}</td>
-                            <td>{user.state}</td>
                         </tr>
                     </tbody>
             )

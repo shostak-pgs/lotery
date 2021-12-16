@@ -3,6 +3,10 @@ import './ThemeLangTable.css';
 
 const ThemeLangTable = (props) => {
 
+    let switchLang = () => {
+       props.setLanguage();
+    }
+
     let switchTheme = () => {
         props.setTheme();
     }
@@ -10,10 +14,6 @@ const ThemeLangTable = (props) => {
     return (    
         <div>
              <nav>
-                 <div className = 'line'>
-    <button onClick = {switchTheme} disabled = {props.theme === 'DARK' ? true : false} className ='theam-lang-table-button'>ark</button>
-                      <button onClick = {switchTheme} disabled = {props.theme === 'DARK' ? false : true} className ='theam-lang-table-button'>light</button>
-                 </div>
              </nav>
           </div>
     )

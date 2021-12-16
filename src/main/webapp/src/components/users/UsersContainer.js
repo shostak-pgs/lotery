@@ -5,9 +5,9 @@ import { withRouter } from 'react-router-dom';
 import Preloader from '../preloader/Preloader';
 import Users from './Users';
 import {connect} from 'react-redux';
-import { setUser } from './../store/LoginReducer';
-import {switchIsFetching, clearChecked, checkAll, checkUser, setUsers, setFlag} from './../store/UsersReducer';
-import UsersService from './../service/UsersService';
+import { setUser } from '../store/LoginReducer';
+import {switchIsFetching, clearChecked, checkAll, checkUser, setUsers, setFlag} from '../store/UsersReducer';
+import UsersService from '../service/UsersService';
 
 class UsersContainer extends Component {
 

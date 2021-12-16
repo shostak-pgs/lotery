@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter} from 'react-router-dom';
 import { withAlert } from 'react-alert'
-import { setUser } from './../store/LoginReducer';
-import { switchIsFetching } from './../store/UsersReducer';
-import LoginService from './../service/LoginService';
+import { setUser } from '../store/LoginReducer';
+import { switchIsFetching } from '../store/UsersReducer';
+import LoginService from '../service/LoginService';
 import Credentials from './Credentials';
-import Preloader from './../preloader/Preloader';
+import Preloader from '../preloader/Preloader';
 
 class CredentialsContainer extends Component {  
     constructor(props){

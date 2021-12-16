@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 import {TextArea} from '../utils/CustomTags';
-import { required } from './../validator/CrUpdValidator';
+import { required } from '../validator/CrUpdValidator';
 import {Field, reduxForm } from 'redux-form';
 
 let Login = (props) => {
