@@ -1,0 +1,10 @@
+.theam-lang-table-button {
+    border-radius: 6px;
+    min-height: min-content;
+    width: 13vh;
+    text-align: center;
+}
+
+.line {
+    padding: 0.5vmin;
+}

@@ -1,0 +1,21 @@
+.bar {
+    scroll-padding-left: 2vmax;
+    margin-left: 20rem;
+}
+
+.button {
+    border-radius: 6px;
+    margin: 2vmin;
+}
+
+.users-managment-button {
+    margin: center;
+}
+
+.credentData {
+    padding: auto;
+}
+
+.navbar,
+.navbar-default {
+}

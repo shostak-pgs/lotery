@@ -1,0 +1,8 @@
+.DARK {
+  background-color: #282c34;
+  color : white;
+  background-image: url(./img/newYear.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
