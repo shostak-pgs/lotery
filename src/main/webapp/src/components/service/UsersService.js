@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import BaseService from './BaseService';
 import { MessageWrapper } from './../utils/CustomTags';
 
-const USERS_API_URL = 'http://localhost:8080/api/users'
+const USERS_API_URL = 'https://godel-lotery.herokuapp.com/api/users'
 
 class UsersService extends Component {
     constructor(props) {
