@@ -19,7 +19,7 @@ let Users = (props) => {
                                                                    deleteUsers = {deleteUsers} user = {user}/></div>} />
             </div>
             <div>
-                <Route render = {(props)=> <div><Content {...props} flag = {flag}
+                <Route render = {(props)=> <div><Content {...props} flag = {flag} user = {user}
                                     checkedItems = {checkedItems} checkAll = {checkAll} checkUser = {checkUser} users = {users}/></div>} />
             </div>
         </div>

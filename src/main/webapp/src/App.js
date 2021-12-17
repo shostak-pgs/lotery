@@ -7,6 +7,7 @@ import LoginContainer from './components/login/LoginContainer';
 import UsersContainer from './components/users/UsersContainer';
 import ThemeLangContainer from './components/themeAndLang/ThemeAndLangContainer';
 import CredentialsContainer from './components/credentials/CredentialsContainer';
+import GuestContainer from './components/guest/GuestContainer';
 import './App.css';
 
 const App = (props) => {
@@ -17,10 +18,10 @@ const App = (props) => {
                        <header>
                            <Switch>
                                <Route exact path='/login' render = { () => <LoginContainer />}/>
-                               <Route exact path='/create' render = { () => <LoginContainer />}/>
-                               <Route exact path='/' render = { () => <UsersContainer />}/>
+                               <Route exact path='/' render = { () => <GuestContainer />}/>
                            </Switch>
                        </header>
+                    <UsersContainer />
                    <ThemeLangContainer/>
                 </div>
             </AlertProvider>

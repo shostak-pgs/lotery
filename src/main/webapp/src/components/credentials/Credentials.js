@@ -1,9 +1,8 @@
 import React from 'react';
 import { Navbar, Nav, Form } from 'react-bootstrap';
 import { withRouter, NavLink } from 'react-router-dom';
-import homeicon from '../../img/homeicon.png';
-import mypageicon from '../../img/mypageicon.png';
-import '../users/header/ActionBar.css';
+import homeicon from './../../img/homeicon.png';
+import './../users/header/ActionBar.css';
 
 const Credentials = (props) => {
     let user = props.user;
@@ -28,16 +27,14 @@ const Credentials = (props) => {
         }
     }
 
-    let handleUsersPage = () => {
-        if(isUserRegistered && user.role === 'ADMIN') {
-            props.history.push('/users');
+    let runLotery = () => {
+        props.runLotery();
         }
-    }
 
     let logout = () => {
         return (
             <NavLink to={'/'}>
-                <button onClick = {props.logout} className = 'button'>logout-button</button>
+                <button onClick = {props.logout} className = 'button'>Logout</button>
             </NavLink>
         )
     }
@@ -45,17 +42,16 @@ const Credentials = (props) => {
     let loginOrRegister = () => {
         return (
            <NavLink to={'/login'}>
-               <button className = 'button'>login-or-register-button</button>
+               <button className = 'button'>Login</button>
            </NavLink>
         )
     }
 
     return(
         <Navbar >
-            <Nav><NavLink to={'/myArticles/myArticles'}><button hidden = {isAdmin() === true ? false : true} className = 'button'><img src = {mypageicon} width = '50' alt = ''/></button></NavLink></Nav>
-            <Nav><NavLink to={'/'}><button className = 'button'><img src = {homeicon} alt = ''/></button></NavLink></Nav>
+            <Nav><NavLink to={'/'}><button hidden={user.role !== 'ADMIN'} onClick = {runLotery} lassName = 'button'><img src = {homeicon} alt = ''/></button></NavLink></Nav>
             <Nav className='mr-auto'>
-                <button onClick = {handleUsersPage} hidden={true} className = 'button'>users-managment-button</button>
+                <button hidden={true} className = 'button'>users-managment-button</button>
             </Nav>
             <Form>
                 <Navbar.Text>{credentData()}</Navbar.Text>

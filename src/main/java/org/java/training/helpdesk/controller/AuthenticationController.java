@@ -26,10 +26,4 @@ public class AuthenticationController {
         UserDto dto = userService.login(credentialDto);
         return ResponseEntity.ok(dto);
     }
-
-    @PostMapping(value = "/activate")
-    public ResponseEntity<UserDto> activate(@RequestBody final ActivationCodeDto codeDto) {
-        UserDto activated = userService.activate(codeDto.getActivationCode());
-        return ResponseEntity.ok(activated);
-    }
 }

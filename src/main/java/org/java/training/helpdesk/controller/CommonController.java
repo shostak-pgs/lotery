@@ -1,5 +1,6 @@
 package org.java.training.helpdesk.controller;
 
+import org.java.training.helpdesk.dto.UserDto;
 import org.java.training.helpdesk.service.CommonService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,5 +20,10 @@ public class CommonController {
     @GetMapping(value = "/common")
     public ResponseEntity<Map<String, Object>> getComments() {
         return ResponseEntity.ok(commonService.getFixedVales());
+    }
+
+    @GetMapping(value = "/run")
+    public ResponseEntity<UserDto> runLotery() {
+        return ResponseEntity.ok(commonService.runLatery());
     }
 }

@@ -11,6 +11,7 @@ class LoginService extends Component {
         this.logout = this.logout.bind(this);
         this.login = this.login.bind(this);
         this.createUser.bind(this);
+        this.runLotery.bind(this);
     }
 
     login(props) {
@@ -43,6 +44,13 @@ class LoginService extends Component {
                                  data : props.data,
                                  messageId : 'unable-to-create-user',
                                  alert: props.alert })
+    }
+
+    runLotery(props) {
+        return BaseService.get({url : `${APPLICATION_API_URL}/run`,
+            data : props.data,
+            messageId : 'unable-to-create-user',
+            alert: props.alert })
     }
 }
 

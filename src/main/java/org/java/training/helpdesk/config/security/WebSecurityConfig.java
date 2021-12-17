@@ -27,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String LOGOUT_URL = "/api/logout";
     private static final String LOGIN_URL = "/api/login";
     private static final String USERS_URL = "/api/users";
+    private static final String RUN_URL = "/api/run";
     private static final String ACTIVATE_URL = "/api/activate";
     private static final String ARTICLES_OVERVIEW_URL = "/api/articles/**";
     private static final String CHAPTERS_OVERVIEW_URL = "/api/articles/**/chapters";
@@ -56,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests().antMatchers(BASE_URL, UI_LOGIN_URL, LOGIN_URL, USERS_URL, ACTIVATE_URL).permitAll()
-            .antMatchers(HttpMethod.GET, ARTICLES_OVERVIEW_URL, COMMENTS_OVERVIEW_URL,
+            .antMatchers(HttpMethod.GET, ARTICLES_OVERVIEW_URL, USERS_URL,  COMMENTS_OVERVIEW_URL, RUN_URL,
                     CHAPTERS_OVERVIEW_URL, PNG_FORMAT, SVG_FORMAT, STATIC_FOLDER, JS_FORMAT, JSON_FORMAT, ICO_FORMAT, CSS_FORMAT)
                 .permitAll()
                 .antMatchers(HttpMethod.POST, ACTIVATE_URL).permitAll()

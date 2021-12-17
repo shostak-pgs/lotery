@@ -7,6 +7,8 @@ import org.java.training.helpdesk.entity.enums.State;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UserConverter {
 
@@ -23,6 +25,6 @@ public class UserConverter {
 
     public User fromDto(final UserDto dto) {
         return new User(dto.getFirstName(), dto.getLastName(), Role.EMPLOYEE, dto.getEmail(),
-                passwordEncoder.encode(dto.getPassword()), State.UNBLOCKED);
+                passwordEncoder.encode(Optional.ofNullable(dto.getPassword()).orElse("1111")), State.UNBLOCKED);
     }
 }

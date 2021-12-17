@@ -6,36 +6,22 @@ import Preloader from '../preloader/Preloader';
 import LoginService from '../service/LoginService';
 import { setUser } from '../store/LoginReducer';
 import { switchIsFetching } from '../store/UsersReducer';
-import Login from './Login';
+import HandleGuest from './HandleGuest';
 
-class LoginContainer extends Component {
+class GuestContainer extends Component {
 
     constructor(props){
         super(props);
-        this.getUser = this.getUser.bind(this);
         this.createUser = this.createUser.bind(this);
-    }
-
-    getUser(userData){
-        this.props.switchIsFetching({isFetching : true});
-            LoginService.login({userData : userData, alert : this.props.alert}).then(response => {
-                if ((response.status === 200)) {
-                    this.props.setUser({user : response.data});
-                    this.props.history.push(`/`); 
-                } else {
-                    this.props.setUser({user : {id : '', firstName : '', password : '' }})
-                    this.props.history.push(`/`)
-                }
-        });
-        this.props.switchIsFetching({isFetching : false});
     }
 
     createUser(userData){
          this.props.switchIsFetching({isFetching : true});
              LoginService.createUser({data : userData, alert : this.props.alert, user : this.props.user}).then(response => {
                  if ((response.status === 201)) {
+                    this.props.setUser({user : response.data});
                     this.props.alert.show('successfully-created');
-                    this.props.history.push(`/confirm`);
+                    this.props.history.push(`/`);
                  } else {
                     this.props.setUser({user : {id : '', firstName : '', password : '' }})
                     this.props.history.push(`/`)
@@ -46,8 +32,7 @@ class LoginContainer extends Component {
 
     render() {
         return(<div> {this.props.isFetching ? <Preloader/> : null}
-                    <Login getUser = {this.getUser}
-                           isCreate = {this.props.match.params.create}
+                    <HandleGuest isCreate = {this.props.match.params.create}
                            history = {this.props.history}
                            createUser = {this.createUser}
                            user = {this.props.user}/>
@@ -62,10 +47,10 @@ let mapStateToProps = (state) => {
         user: state.loginPage.user
     }
 }
-let WithAlertLoginContainer = withAlert()(LoginContainer);
+let WithAlertGuestContainer = withAlert()(GuestContainer);
 
-let WithRouteLoginContainer = withRouter(WithAlertLoginContainer);
+let WithRouteGuestContainer = withRouter(WithAlertGuestContainer);
   
 export default connect(mapStateToProps, {
     setUser, switchIsFetching
-    })(WithRouteLoginContainer);
+    })(WithRouteGuestContainer);

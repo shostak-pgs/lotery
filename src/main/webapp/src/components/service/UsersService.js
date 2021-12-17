@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react';
 import BaseService from './BaseService';
-import { MessageWrapper } from '../utils/CustomTags';
+import { MessageWrapper } from './../utils/CustomTags';
 
 const USERS_API_URL = 'http://localhost:8080/api/users'
 

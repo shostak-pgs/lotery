@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import './content/Content.css';
 import { withAlert } from 'react-alert'
-import { withRouter } from 'react-router-dom';
 import Preloader from '../preloader/Preloader';
 import Users from './Users';
 import {connect} from 'react-redux';
-import { setUser } from '../store/LoginReducer';
-import {switchIsFetching, clearChecked, checkAll, checkUser, setUsers, setFlag} from '../store/UsersReducer';
-import UsersService from '../service/UsersService';
+import { setUser } from './../store/LoginReducer';
+import {switchIsFetching, clearChecked, checkAll, checkUser, setUsers, setFlag} from './../store/UsersReducer';
+import UsersService from './../service/UsersService';
 
 class UsersContainer extends Component {
 
@@ -114,8 +113,6 @@ let mapStateToProps = (state) => {
 
 let WithAlertUsersContainer = withAlert()(UsersContainer);
 
-let WithRouteUsersContainer = withRouter(WithAlertUsersContainer);
-
 export default connect(mapStateToProps, {
     setUsers, switchIsFetching, checkAll, clearChecked, checkUser, setFlag, setUser
-    })(WithRouteUsersContainer);
+    })(WithAlertUsersContainer);

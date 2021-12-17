@@ -5,6 +5,7 @@ import RenderTableData from './RenderTableData.js';
 const Content = (props) => {
     return (
             <RenderTableData users = {props.users}
+                             user = {props.user}
                              history = {props.history}
                              checkUser = {props.checkUser}
                              checkAll = {props.checkAll}

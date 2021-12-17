@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import {MessageWrapper} from '../utils/CustomTags';
+import {MessageWrapper} from './../utils/CustomTags';
 
 class BaseService extends Component {
     constructor(props) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Checkbox } from '../../utils/CustomTags';
 
 let RenderTableData = (props) => {
 
@@ -7,9 +6,11 @@ let RenderTableData = (props) => {
        props.checkUser(e);
     }
 
-        let checkAll =() => {
+    let user = props.user;
+
+    let checkAll =() => {
         props.checkAll();
-        }
+    }
 
     let header = () => {
         return (
@@ -37,7 +38,8 @@ let RenderTableData = (props) => {
     }
 
     return (
-         <table class="table">
+         // <table class="table" hidden={!(user.role === 'ADMIN')}>
+         <table class="table" hidden={user.role !== 'ADMIN'}>
             {header()}
             {body(props)}
         </table>
