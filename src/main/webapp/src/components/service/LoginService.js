@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import BaseService from './BaseService';
 
-const LOGIN_API_URL = 'https://godel-lotery.herokuapp.com/api/login';
-const LOGOUT_API_URL = 'https://godel-lotery.herokuapp.com/api/logout';
-const APPLICATION_API_URL = 'https://godel-lotery.herokuapp.com/api';
+const LOGIN_API_URL = 'https://godel-lottery.herokuapp.com/api/login';
+const LOGOUT_API_URL = 'https://godel-lottery.herokuapp.com/api/logout';
+const APPLICATION_API_URL = 'https://godel-lottery.herokuapp.com/api';
 
 class LoginService extends Component {
     constructor(props) {
