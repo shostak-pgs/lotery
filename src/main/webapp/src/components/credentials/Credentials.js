@@ -1,8 +1,9 @@
 import React from 'react';
 import { Navbar, Nav, Form } from 'react-bootstrap';
 import { withRouter, NavLink } from 'react-router-dom';
+import './Credentials.css';
 import homeicon from './../../img/homeicon.png';
-import mypageicon from './../../img/mypageicon.png';
+import magic from './../../img/magic.png';
 import './../users/header/ActionBar.css';
 
 const Credentials = (props) => {
@@ -50,8 +51,8 @@ const Credentials = (props) => {
 
     return(
         <Navbar >
-            <Nav><NavLink to={'/'}><button hidden={user.role !== 'ADMIN'} onClick = {runLotery} lassName = 'button'><img src = {homeicon} alt = ''/></button></NavLink></Nav>
-            <Nav><NavLink to={'/'}><button className = 'button'><img src = {homeicon} alt = ''/></button></NavLink></Nav>
+            <Nav><NavLink to={'/'}><button className = 'button'><img className = {'homeicon'} src = {homeicon} alt = ''/></button></NavLink></Nav>
+            <Nav className={'runIconBox'}><NavLink to={'/'} ><button className = 'iconButton' hidden={user.role !== 'ADMIN'} onClick = {runLotery} ><img className={'runIcon'} src = {magic} alt = ''/></button></NavLink></Nav>
             <Nav className='mr-auto'>
                 <button hidden={true} className = 'button'>users-managment-button</button>
             </Nav>

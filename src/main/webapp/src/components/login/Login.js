@@ -45,7 +45,7 @@ const LoginForm = (props) => {
                             validate = {required} className = {'loginInput'} /></div>
                 <div><Field placeholder = {'password'} type = 'password' name = {'password'} component = {TextArea}
                             validate = {required} className = {'loginInput'} /></div>
-                <div><button type = 'submit' disabled = {props.onCreatePage() === true ? true : false} onClick = {props.handleSubmit} id = 'Login' className = {'loginButton'}>Login</button></div>
+                <div className={'createIconBox'}><button type = 'submit' disabled = {props.onCreatePage() === true ? true : false} onClick = {props.handleSubmit} id = 'Login' className = {'loginButton'}>Login</button></div>
             </form>
         </div>
     )

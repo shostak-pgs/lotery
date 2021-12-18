@@ -2,6 +2,8 @@ import React from 'react';
 import {TextArea} from '../utils/CustomTags';
 import { required } from './../validator/CrUpdValidator';
 import {Field, reduxForm } from 'redux-form';
+import './HandleGuest.css';
+import createUserIcon from "../../img/createUserIcon.png";
 
 let HandleGuest = (props) => {
 
@@ -36,11 +38,13 @@ const HandleGuestForm = (props) => {
             </div>
             <form>
                 {props.getNameFields()}
-                <div><button type = 'button'
+                <div className={'createIconBox'}><button type = 'button'
                              hidden={props.user !== undefined && props.user.email !== undefined}
                              onClick = {props.handleSubmit}
                              id = 'Create'
-                             className = {'loginButton'}>Behaved Well</button></div>
+                             className = {'createButton'}>
+                    <img className={'createIcon'} src = {createUserIcon} alt = ''/>
+                </button></div>
             </form>
         </div>
     )

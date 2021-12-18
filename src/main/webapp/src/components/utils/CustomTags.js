@@ -87,7 +87,7 @@ export const TextArea = ({input, meta,  ...props}) => {
     return (
             <div className = {isCorrect ? 'error' : 'valid'}>
                 <input {...input} type={props.type} {...props} placeholder = {placeholder} />
-                <div>{isCorrect && <span>{meta.error}</span>}</div>
+                <div className = {'textWrapper'}>{isCorrect && <span>{meta.error}</span>}</div>
             </div>
     );
 };
