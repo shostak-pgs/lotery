@@ -1,0 +1,29 @@
+.loginButton{
+    padding: 1vmin;
+    margin: 2vmin;
+    border-radius: 6px;
+    margin-left: 25%;
+    display: block;
+    display: inline-block;
+}
+
+.loginInput {
+    padding: 2vmin;
+    border-radius: 6px;
+    width: 50%;
+}
+
+.createButton {
+    border-radius: 6px;
+    margin-left: 25%;
+    margin-bottom: 70%;
+}
+
+.createIconBox {
+   margin-bottom: 70%;
+}
+
+.createIcon {
+    height: 4ch;
+    width: 30vh;
+}
