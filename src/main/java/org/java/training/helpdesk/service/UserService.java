@@ -52,6 +52,9 @@ public class UserService {
     @Transactional
     public UserDto login(UserCredentialDto credentialDto) {
         User user = userRepository.findUserByEmail(credentialDto.getEmail()).orElseThrow(() -> new NotFoundException(User.class, credentialDto.getEmail()));
+        if(!(user.getPassword().equals(credentialDto.getPassword()))) {
+            throw new RuntimeException("Incorrect Password");
+        }
         UserDto dto = userConverter.toDto(user);
         dto.setJwt(authenticationService.getToken(credentialDto));
         return dto;

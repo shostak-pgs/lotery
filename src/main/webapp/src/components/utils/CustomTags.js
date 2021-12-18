@@ -68,7 +68,7 @@ export class SingleFileDropZone extends Component{
 
 export const RenderSelectInput = props => {
     const { input } = props;
-    let placeholder = 'ppp';
+    let placeholder = props.placeholder;
       
     let getTags = () => {
         return props.object.map(element => ({ label: element, value: element }));
@@ -82,10 +82,11 @@ export const RenderSelectInput = props => {
 
 export const TextArea = ({input, meta,  ...props}) => {
     const isCorrect = meta.touched && meta.error;
-    let placeholder = 'placeholder';
+    let placeholder = props.placeholder;
+
     return (
             <div className = {isCorrect ? 'error' : 'valid'}>
-                <textarea {...input} {...props} placeholder = {placeholder} ></textarea>
+                <input {...input} type={props.type} {...props} placeholder = {placeholder} />
                 <div>{isCorrect && <span>{meta.error}</span>}</div>
             </div>
     );

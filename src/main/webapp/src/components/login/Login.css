@@ -9,6 +9,15 @@
 
 .loginInput {
     border-radius: 6px;
-    width: 90%;
+    height: 5vh;
+    width: 50%;
     margin: 2%;
+}
+
+.credentials {
+    margin-left: 25%;
+}
+
+.fieldContainer {
+    height: 7vh;
 }

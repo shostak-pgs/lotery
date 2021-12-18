@@ -1,13 +1,15 @@
-.error textarea {
+.error input {
     border-radius: 6px;
-    width: 50%;
+    width: 20%;
+    height: 5vh;
     margin-left: 25%;
     border : solid tomato 2px;
 }
 
-.valid textarea {
+.valid input {
     border-radius: 6px;
-    width: 50%;
+    width: 20%;
+    height: 5vh;
     margin-left: 25%;
 }
 

@@ -30,7 +30,7 @@ let RenderTableData = (props) => {
                     <tbody>
                         <tr key={user.id}>
                             <td>{user.firstName}</td>
-                            <td>{user.secondName}</td>
+                            <td>{user.lastName}</td>
                         </tr>
                     </tbody>
             )
@@ -38,7 +38,6 @@ let RenderTableData = (props) => {
     }
 
     return (
-         // <table class="table" hidden={!(user.role === 'ADMIN')}>
          <table class="table" hidden={user.role !== 'ADMIN'}>
             {header()}
             {body(props)}

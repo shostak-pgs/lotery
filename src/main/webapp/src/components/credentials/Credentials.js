@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Form } from 'react-bootstrap';
 import { withRouter, NavLink } from 'react-router-dom';
 import homeicon from './../../img/homeicon.png';
+import mypageicon from './../../img/mypageicon.png';
 import './../users/header/ActionBar.css';
 
 const Credentials = (props) => {
@@ -23,7 +24,7 @@ const Credentials = (props) => {
         if(isUserRegistered() && user.firstName !== "") {
             return (<div >{`${user.lastName} ${user.firstName}`}</div>)
         } else {
-            return (<div>unautorized</div>)
+            return (<div>unauthorized</div>)
         }
     }
 
@@ -34,7 +35,7 @@ const Credentials = (props) => {
     let logout = () => {
         return (
             <NavLink to={'/'}>
-                <button onClick = {props.logout} className = 'button'>Logout</button>
+                <button onClick = {props.logout} hidden={user.role !== 'ADMIN'} className = 'button'>Logout</button>
             </NavLink>
         )
     }
@@ -50,6 +51,7 @@ const Credentials = (props) => {
     return(
         <Navbar >
             <Nav><NavLink to={'/'}><button hidden={user.role !== 'ADMIN'} onClick = {runLotery} lassName = 'button'><img src = {homeicon} alt = ''/></button></NavLink></Nav>
+            <Nav><NavLink to={'/'}><button className = 'button'><img src = {homeicon} alt = ''/></button></NavLink></Nav>
             <Nav className='mr-auto'>
                 <button hidden={true} className = 'button'>users-managment-button</button>
             </Nav>

@@ -18,7 +18,7 @@ class LoginContainer extends Component {
 
     getUser(userData){
         this.props.switchIsFetching({isFetching : true});
-            LoginService.login({userData : userData, alert : this.props.alert}).then(response => {
+            LoginService.login({userData : userData, alert : 'Incorrect credentials '}).then(response => {
                 if ((response.status === 200)) {
                     this.props.setUser({user : response.data});
                     this.props.history.push(`/`); 

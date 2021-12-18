@@ -36,14 +36,16 @@ let Login = (props) => {
 const LoginForm = (props) => {
     return(
         <div className = 'formContainer'>
-            <h3>{'Enter your credentials'}</h3>
-            <form>
+            <div className = {'credentials'}>
+                <h3>{'Enter your credentials'}</h3>
+                </div>
+                <form>
                 {props.getNameFields()}
-                <div><Field placeholder = {'email'} name = {'email'} component = {TextArea}
+                <div className={'fieldContainer'}><Field placeholder = {'email'} name = {'email'} component = {TextArea}
                             validate = {required} className = {'loginInput'} /></div>
                 <div><Field placeholder = {'password'} type = 'password' name = {'password'} component = {TextArea}
                             validate = {required} className = {'loginInput'} /></div>
-                <div><button type = 'submit' disabled = {props.onCreatePage() === true ? true : false} onClick = {props.handleSubmit} id = 'Login' className = {'loginButton'}>login</button></div>
+                <div><button type = 'submit' disabled = {props.onCreatePage() === true ? true : false} onClick = {props.handleSubmit} id = 'Login' className = {'loginButton'}>Login</button></div>
             </form>
         </div>
     )
