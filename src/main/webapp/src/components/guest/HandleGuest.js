@@ -16,18 +16,27 @@ let HandleGuest = (props) => {
     }
 
     const getNameFields = () => {
-            return (<div hidden={props.user !== undefined && props.user.email !== undefined}>
-                <div className={'fieldContainer'}><Field placeholder = {'First Name'} name = {'firstName'} component = {TextArea}
-                            validate = {required} className = {'loginInput'}/></div>
-                <div><Field placeholder = {'Last Name'} name = {'lastName'} component = {TextArea}
-                            validate = {required} className = {'loginInput'} /></div></div>);
+            return (<div>
+                <div className={'fieldContainer'}><Field placeholder={'First Name'} name={'firstName'}
+                                                         component={TextArea}
+                                                         validate={required} className={'loginInput'}/></div>
+                <div><Field placeholder={'Last Name'} name={'lastName'} component={TextArea}
+                            validate={required} className={'loginInput'}/></div>
+            </div>);
     }
 
-    return(
-        <div>
-            <HandleGuestReduxForm getNameFields = {getNameFields} user = {props.user} onSubmit = {handleSubmit} create = {create}/>
-        </div>
-    )
+
+
+    if(props.user === undefined || props.user.email === undefined) {
+        return (
+            <div>
+                <HandleGuestReduxForm getNameFields={getNameFields} user={props.user} onSubmit={handleSubmit}
+                                      create={create}/>
+            </div>
+        )
+    } else {
+        return <div/>
+    }
 }
 
 const HandleGuestForm = (props) => {
