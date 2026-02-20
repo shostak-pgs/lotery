@@ -24,10 +24,10 @@ public class ChapterController {
         return ResponseEntity.ok(chapterService.getChapterById(id));
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> delete(@RequestParam final Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final Long id) {
         chapterService.delete(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping

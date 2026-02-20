@@ -23,6 +23,6 @@ public class RateController {
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody final RateDto dto) {
         rateService.create(dto);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.created(java.net.URI.create("/api/rates")).build();
     }
 }

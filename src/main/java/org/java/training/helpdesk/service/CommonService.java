@@ -21,7 +21,7 @@ public class CommonService {
         this.userService = userService;
     }
 
-    public Map<String, Object> getFixedVales(){
+    public Map<String, Object> getFixedValues(){
         Map<String, Object> map = new HashMap<>() ;
         map.put(GENRE, Arrays.stream(Genre.values())
                 .filter(genre-> !genre.getStringValue().equals("")).collect(Collectors.toList()));
@@ -30,7 +30,7 @@ public class CommonService {
         return  map;
     }
 
-    public UserDto runLatery() {
+    public UserDto runLottery() {
         List<UserDto> users = new ArrayList<>(userService.getUsers());
         Integer id = getRandomId(0, users.size());
         return users.get(id);

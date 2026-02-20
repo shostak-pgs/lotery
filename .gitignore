@@ -1,0 +1,11 @@
+target/
+node_modules/
+.idea/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+src/main/webapp/node/
+src/main/webapp/node_modules/
+src/main/webapp/build/
