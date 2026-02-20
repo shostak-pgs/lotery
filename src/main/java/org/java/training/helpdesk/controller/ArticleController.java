@@ -4,6 +4,8 @@ import org.hibernate.service.spi.ServiceException;
 import org.java.training.helpdesk.dto.ArticleDto;
 import org.java.training.helpdesk.dto.ChapterDto;
 import org.java.training.helpdesk.service.ArticleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -14,6 +16,8 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api/articles")
 public class ArticleController {
+
+    private static final Logger log = LoggerFactory.getLogger(ArticleController.class);
 
     private final ArticleService articleService;
 
@@ -26,8 +30,8 @@ public class ArticleController {
         return ResponseEntity.ok(articleService.getArticles());
     }
 
-    @DeleteMapping
-    public ResponseEntity<Set<ArticleDto>> deleteArticle(@RequestParam final Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Set<ArticleDto>> delete(@PathVariable final Long id) {
         return ResponseEntity.ok(articleService.deleteArticle(id));
     }
 
@@ -48,6 +52,7 @@ public class ArticleController {
 
     @PostMapping
     public ResponseEntity<ArticleDto> create(@RequestBody final ArticleDto dto){
+        log.info("Creating article: {}", dto.getName());
         ArticleDto created = articleService.create(dto);
         final URI uri =
                 ServletUriComponentsBuilder.fromCurrentRequest()

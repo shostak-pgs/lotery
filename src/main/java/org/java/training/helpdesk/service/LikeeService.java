@@ -20,7 +20,7 @@ public class LikeeService {
         this.chapterService = chapterService;
     }
 
-    public void service(Long chapterId) {
+    public void toggleLike(Long chapterId) {
         Likee like = likeeRepository
                 .findLikeeByChapterIdAndUserId(chapterId, authenticationService.getAuthenticateUser().getId());
         if (like != null) {

@@ -18,12 +18,12 @@ public class CommonController {
     }
 
     @GetMapping(value = "/common")
-    public ResponseEntity<Map<String, Object>> getComments() {
-        return ResponseEntity.ok(commonService.getFixedVales());
+    public ResponseEntity<Map<String, Object>> getFixedValues() {
+        return ResponseEntity.ok(commonService.getFixedValues());
     }
 
     @GetMapping(value = "/run")
-    public ResponseEntity<UserDto> runLotery() {
-        return ResponseEntity.ok(commonService.runLatery());
+    public ResponseEntity<UserDto> runLottery() {
+        return ResponseEntity.ok(commonService.runLottery());
     }
 }

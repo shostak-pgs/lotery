@@ -60,7 +60,7 @@ class ArticlesService extends Component {
     }
 
     deleteArticle(props) {
-        return BaseService.delete({url : `${ARTICLES_API_URL}?id=${props.id}`,
+        return BaseService.delete({url : `${ARTICLES_API_URL}/${props.id}`,
                                    messageId : 'delete-articles-error',
                                    alert: props.alert,
                                    config : {jwt : props.user.jwt} })

@@ -2,17 +2,21 @@ package org.java.training.helpdesk.controller;
 
 import org.java.training.helpdesk.dto.UserDto;
 import org.java.training.helpdesk.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import javax.validation.Valid;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
+
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 
@@ -26,11 +30,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> create(final HttpServletRequest request,
-                                          @Valid @RequestBody final UserDto dto) throws URISyntaxException {
-        System.out.println(dto.getEmail());
+    public ResponseEntity<UserDto> create(@Valid @RequestBody final UserDto dto) {
+        log.info("Creating user with email: {}", dto.getEmail());
         UserDto created = userService.create(dto);
-        return ResponseEntity.created(new URI(request.getRequestURI())).body(created);
+        final URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(created.getId())
+                .toUri();
+        return ResponseEntity.created(uri).body(created);
     }
 
 }

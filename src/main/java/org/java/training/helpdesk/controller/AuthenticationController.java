@@ -1,9 +1,7 @@
 package org.java.training.helpdesk.controller;
 
-import org.java.training.helpdesk.dto.ActivationCodeDto;
 import org.java.training.helpdesk.dto.UserCredentialDto;
 import org.java.training.helpdesk.dto.UserDto;
-import org.java.training.helpdesk.service.AuthenticationService;
 import org.java.training.helpdesk.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +11,9 @@ import javax.validation.Valid;
 @RequestMapping("/api")
 public class AuthenticationController {
 
-    private final AuthenticationService authService;
     private final UserService userService;
 
-    public AuthenticationController(AuthenticationService authService, UserService userService) {
-        this.authService = authService;
+    public AuthenticationController(UserService userService) {
         this.userService = userService;
     }
 

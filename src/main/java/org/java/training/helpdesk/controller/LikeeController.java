@@ -15,8 +15,8 @@ public class LikeeController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> service(@RequestBody final Long articleId) {
-        likeeService.service(articleId);
+    public ResponseEntity<Void> toggleLike(@RequestBody final Long articleId) {
+        likeeService.toggleLike(articleId);
         return ResponseEntity.ok().build();
     }
 }
